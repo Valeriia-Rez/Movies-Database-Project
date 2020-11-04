@@ -1,16 +1,14 @@
 import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
+import SortByRatingFilms from '../SortByRatingFilms';
+import './index.scss';
 
-interface ILayoutProps {
-    children: React.ReactNode
-}
-
-const Layout = ({children}: ILayoutProps) => {
+const Layout = () => {
     return (
         <div className="layout">
             <Header/>
-            <main>{children}</main>
+            <SortByRatingFilms/>
             <Footer/>
         </div>
     )

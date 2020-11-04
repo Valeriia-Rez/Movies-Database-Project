@@ -1,0 +1,11 @@
+.item {
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__img {
+    width: 100%;
+  }
+}
