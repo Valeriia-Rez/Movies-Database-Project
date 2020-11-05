@@ -12,13 +12,15 @@ interface IItemProps {
 const Item = ({ image, title, date, genre }: IItemProps) => {
     return (
         <div className="item">
-            <img src={`/images/${image}`} alt="image" className="item__img" />
+            <div className="item__poster">
+                <img src={`/images/${image}`} alt="image" className="item__img" />
+            </div>
             <div className="item__info">
-                <h2>{title}</h2>
-                <h3>{date}</h3>
+                <span>{title}</span>
+                <span>{date}</span>
             </div>
             <div>
-                <h4>{genre}</h4>
+                <span>{genre}</span>
             </div>
         </div>
     )
