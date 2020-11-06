@@ -5,11 +5,12 @@ interface IItemProps {
     image: string,
     title: string,
     date: number,
-    genre: string
+    genre: string,
+    vote_average: number
 }
 
 
-const Item = ({ image, title, date, genre }: IItemProps) => {
+const Item = ({ image, title, date, genre,vote_average }: IItemProps) => {
     return (
         <div className="item">
             <div className="item__poster">
@@ -20,6 +21,7 @@ const Item = ({ image, title, date, genre }: IItemProps) => {
                 <span>{date}</span>
             </div>
             <div>
+    <span>{vote_average}</span>
                 <span>{genre}</span>
             </div>
         </div>

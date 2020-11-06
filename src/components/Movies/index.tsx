@@ -7,7 +7,7 @@ interface IMoviesProps{
 }
 
 interface IMovie{
-    image: string, title: string,date:number, genre:string
+    image: string, title: string,date:number, genre:string, vote_average: number
 }
 
 const Movies = ({movies}: IMoviesProps) => {
@@ -20,7 +20,8 @@ const Movies = ({movies}: IMoviesProps) => {
                 image={item.image} 
                 title={item.title}
                 date={item.date} 
-                genre={item.genre}/>
+                genre={item.genre}
+                vote_average={item.vote_average}/>
             })}
             </div>
         </>

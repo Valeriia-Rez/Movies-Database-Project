@@ -1,14 +1,16 @@
 import React from 'react';
+import './index.scss';
 
 
 interface IButtonProps{
     buttonName: string,
-    //onClick(): void
+    onClick(): void,
+    className?: string
 }
 
-const Button = ({buttonName}: IButtonProps) => {
+const Button = ({buttonName, onClick, className}: IButtonProps) => {
     return (
-        <button type="button" className="button">{buttonName}</button>
+        <button onClick={onClick} type="button" className={`button ${className ? className : ""}`}>{buttonName}</button>
     )
 }
 

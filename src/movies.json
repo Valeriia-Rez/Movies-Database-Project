@@ -1,79 +1,93 @@
-[{
-    "title" : "Jackie Brown",
+[
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Dramas",
+    "vote_average": 2
+  },
+  {
+    "title": "Jackie Brown",
+    "image": "filmImage.jpg",
+    "date": 1995,
+    "genre": "Dramas",
+    "vote_average": 4
+  },
+  {
+    "title": "Jackie Bn",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Dramas",
+    "vote_average": 2
+  },
+  {
+    "title": "Jac Brown",
+    "image": "filmImage.jpg",
+    "date": 1992,
+    "genre": "Thriller",
+    "vote_average": 3
+  },
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Dramas",
+    "vote_average": 5
+  },
+  {
+    "title": "Jackie Brown",
+    "image": "filmImage.jpg",
+    "date": 1994,
+    "genre": "Comedy",
+    "vote_average": 6
+  },
+  {
+    "title": "Jacke Brown",
+    "image": "filmImage.jpg",
+    "date": 1990,
+    "genre": "Dramas",
+    "vote_average": 7
+  },
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Horror",
+    "vote_average": 2
+  },
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Dramas",
+    "vote_average": 2
+  },
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Dramas",
+    "vote_average": 2
+  },
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Dramas",
+    "vote_average": 2
+  },
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
+    "genre": "Dramas",
+    "vote_average": 4
+  },
+  {
+    "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
-    "image": "filmImage.jpg",
-    "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
-    "image": "filmImage.jpg",
-    "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
-    "image": "filmImage.jpg",
-    "date": 1997,
-    "genre": "Dramas"
-},
-{
-    "title" : "Jackie Brown",
-    "image": "filmImage.jpg",
-    "date": 1997,
-    "genre": "Dramas"
-}
+    "genre": "Dramas",
+    "vote_average": 5
+  }
 ]
