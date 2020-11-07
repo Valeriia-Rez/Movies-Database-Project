@@ -17,7 +17,7 @@ const Item = ({ image, title, date, genre, vote_average }: IItemProps) => {
       </div>
       <div className="item__info">
         <span>{title}</span>
-        <span>{date}</span>
+        <span className="item__date">{date}</span>
       </div>
       <div className="item__genre">
         <span>{genre}</span>

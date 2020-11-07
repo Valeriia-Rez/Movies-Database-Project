@@ -68,12 +68,13 @@ class App extends Component {
           onClickFilterBy={this.onChangeFilterByHandler}
           filterBy={this.state.filterBy}
         />
-        <Loading isLoading={this.state.isLoading} />
+
         <SortPannel
           moviesCount={this.state.tempListOfMovies.length}
           onClickSortBy={this.onClickSortByHandler}
           sortBy={this.state.sortBy}
         />
+        <Loading isLoading={this.state.isLoading} />
         {this.state.tempListOfMovies.length ? (
           <Movies movies={this.state.tempListOfMovies} />
         ) : (
