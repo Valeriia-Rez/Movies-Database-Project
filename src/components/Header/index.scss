@@ -1,3 +1,17 @@
 .header {
-  padding: 10px 30px;
+  background-color: #423333;
+  color: #fff;
+  &__wrapper {
+    padding: 10px 20px 20px;
+  }
+
+  &__searchPannel {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__searchBy {
+    display: flex;
+    justify-content: space-between;
+  }
 }

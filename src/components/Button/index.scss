@@ -1,5 +1,19 @@
 .button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  background-color: #807d7d;
+  color: #fff;
+  padding: 4px 7px;
   &.active {
-    background-color: red;
+    background-color: #fa5555;
+  }
+  &.sortButton {
+    border: none;
+    background-color: transparent;
+    color: black;
+
+    outline: none;
   }
 }
