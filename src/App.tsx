@@ -6,9 +6,21 @@ import SortPannel from "./components/SortPannel";
 import Loading from "./components/Loading";
 import movies from "./movies.json";
 import Error from "./components/Error";
+import Movie from "./components/Movie";
+import { IMovie } from "./types";
 import "./App.scss";
 
-class App extends Component {
+interface IAppState {
+  movies: IMovie[] | [];
+  isLoading: boolean;
+  tempListOfMovies: IMovie[] | [];
+  filterBy: string;
+  sortBy: string;
+  searchTerm: string;
+  movie?: IMovie;
+}
+
+class App extends Component<{}, IAppState> {
   state = {
     movies: [],
     isLoading: false,
@@ -16,6 +28,7 @@ class App extends Component {
     filterBy: "title",
     sortBy: "date",
     searchTerm: "",
+    movie: undefined,
   };
 
   componentDidMount = () => {
@@ -24,6 +37,7 @@ class App extends Component {
       this.setState({
         movies: movies,
         isLoading: false,
+
         tempListOfMovies: movies,
       });
     }, 2000);
@@ -50,12 +64,23 @@ class App extends Component {
   };
 
   onClickSortByHandler = (sortByType: string) => {
-    this.setState({ sortByType });
+    this.setState({ sortBy: sortByType });
     const { movies } = this.state;
     const tempListOfMovies = movies.sort((a, b) => {
       return b[sortByType] - a[sortByType];
     });
     this.setState({ tempListOfMovies });
+  };
+
+  onClickByMovie = (e: any) => {
+    const id = e.target.parentElement.parentElement.dataset.id;
+    const { tempListOfMovies } = this.state;
+    const movie = tempListOfMovies.find((item: any) => {
+      if (item.id === +id) {
+        return item;
+      }
+    });
+    this.setState({ movie });
   };
 
   render() {
@@ -68,18 +93,22 @@ class App extends Component {
           onClickFilterBy={this.onChangeFilterByHandler}
           filterBy={this.state.filterBy}
         />
-
         <SortPannel
           moviesCount={this.state.tempListOfMovies.length}
           onClickSortBy={this.onClickSortByHandler}
           sortBy={this.state.sortBy}
         />
         <Loading isLoading={this.state.isLoading} />
+        {this.state.movie && <Movie movie={this.state.movie!} />}
         {this.state.tempListOfMovies.length ? (
-          <Movies movies={this.state.tempListOfMovies} />
+          <Movies
+            movies={this.state.tempListOfMovies}
+            onClickHandler={this.onClickByMovie}
+          />
         ) : (
           <Error />
         )}
+
         <Footer />
       </div>
     );

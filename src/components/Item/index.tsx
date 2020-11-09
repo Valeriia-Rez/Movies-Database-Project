@@ -6,14 +6,14 @@ interface IItemProps {
   title: string;
   date: number;
   genre: string;
-  vote_average: number;
+  id?: number;
+  click(e: any): void;
 }
-
-const Item = ({ image, title, date, genre, vote_average }: IItemProps) => {
+const Item = ({ image, title, date, genre, id, click }: IItemProps) => {
   return (
-    <div className="item">
+    <div className="item" data-id={id} onClick={(e) => click(e)}>
       <div className="item__poster">
-        <img src={`/images/${image}`} alt="image" className="item__img" />
+        <img src={`/images/${image}`} alt="movie" className="item__img" />
       </div>
       <div className="item__info">
         <span>{title}</span>
