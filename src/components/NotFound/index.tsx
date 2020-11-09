@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
 
-const Error = () => (
+const NotFound = () => (
   <div className="error">
     <div className="error__message">
       <p>No films found</p>
@@ -9,4 +9,4 @@ const Error = () => (
   </div>
 );
 
-export default Error;
+export default NotFound;

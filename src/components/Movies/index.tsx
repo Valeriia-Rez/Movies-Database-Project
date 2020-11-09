@@ -5,19 +5,18 @@ import "./index.scss";
 
 interface IMoviesProps {
   movies: IMovie[];
-  onClickHandler(e: any): void;
+  onClickHandler(id: number): void;
 }
 
 const Movies = ({ movies, onClickHandler }: IMoviesProps) => {
   return (
     <>
       <div className="movies">
-        {movies.map((item, index) => {
+        {movies.map((item) => {
           return (
             <Item
-              click={(e: any) => onClickHandler(e)}
-              id={item.id}
-              key={index}
+              click={() => onClickHandler(item.id)}
+              key={item.id}
               image={item.image}
               title={item.title}
               date={item.date}

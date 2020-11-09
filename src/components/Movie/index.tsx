@@ -5,15 +5,15 @@ import Button from "../Button";
 
 interface IMovieProps {
   movie: IMovie;
+  onClickSearch(): void;
 }
 
-const Movie = ({ movie }: IMovieProps) => {
+const Movie = ({ movie, onClickSearch }: IMovieProps) => {
   {
     return (
       <div>
-        <div>
-          <Logo />
-        </div>
+        <Logo />
+        <Button buttonName="search" onClick={onClickSearch} />
         <div>
           <div>
             <img src={`/images/${movie.image}`} alt={movie.title}></img>

@@ -10,6 +10,7 @@ interface IHeaderProps {
   onChange(term: string): void;
   onClickFilterBy(filterBy: string): void;
   filterBy: string;
+  onKeyPress(e: any): void;
 }
 
 const Header = ({
@@ -18,13 +19,14 @@ const Header = ({
   onChange,
   onClickFilterBy,
   filterBy,
+  onKeyPress,
 }: IHeaderProps) => {
   return (
     <div className="header">
       <div className="header__wrapper">
         <Logo />
         <h1>FIND YOUR MOVIE</h1>
-        <Input value={searchTerm} onChange={onChange} />
+        <Input value={searchTerm} onChange={onChange} onKeyPress={onKeyPress} />
         <div className="header__searchPannel">
           <div className="header__searchBy">
             <span>SEARCH BY</span>

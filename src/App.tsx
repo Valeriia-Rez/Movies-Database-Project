@@ -3,9 +3,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Movies from "./components/Movies";
 import SortPannel from "./components/SortPannel";
-import Loading from "./components/Loading";
+import Loader from "./components/Loader";
 import movies from "./movies.json";
-import Error from "./components/Error";
+import NotFound from "./components/NotFound";
 import Movie from "./components/Movie";
 import { IMovie } from "./types";
 import "./App.scss";
@@ -31,28 +31,27 @@ class App extends Component<{}, IAppState> {
     movie: undefined,
   };
 
+  onSearchHandler = () => {
+    this.setState({ movie: undefined, isLoading: true, searchTerm: "" });
+    const { searchTerm, filterBy, movies } = this.state;
+    const tempListOfMovies = movies.filter(
+      (movie) => movie[filterBy] === searchTerm
+    );
+    setTimeout(() => {
+      this.setState({ tempListOfMovies, isLoading: false });
+    }, 1000);
+  };
+
   componentDidMount = () => {
     this.setState({ isLoading: true });
+
     setTimeout(() => {
       this.setState({
         movies: movies,
         isLoading: false,
-
-        tempListOfMovies: movies,
+        tempListOfMovies: movies.sort((a, b) => b.date - a.date),
       });
-    }, 2000);
-  };
-
-  onSearchHandler = () => {
-    const { searchTerm, filterBy, movies } = this.state;
-    const tempListOfMovies = movies.filter((movie) => {
-      //Ask need regex for exact or not
-      if (movie[filterBy] === searchTerm) {
-        return movie;
-      }
-    });
-    this.setState({ tempListOfMovies });
-    this.setState({ searchTerm: "" });
+    }, 1000);
   };
 
   onChangeFilterByHandler = (filterBy: string) => {
@@ -65,22 +64,41 @@ class App extends Component<{}, IAppState> {
 
   onClickSortByHandler = (sortByType: string) => {
     this.setState({ sortBy: sortByType });
-    const { movies } = this.state;
-    const tempListOfMovies = movies.sort((a, b) => {
+    const { tempListOfMovies } = this.state;
+    const tempListSortMovies = tempListOfMovies.sort((a, b) => {
       return b[sortByType] - a[sortByType];
     });
-    this.setState({ tempListOfMovies });
+    this.setState({ tempListOfMovies: tempListSortMovies });
   };
 
-  onClickByMovie = (e: any) => {
-    const id = e.target.parentElement.parentElement.dataset.id;
-    const { tempListOfMovies } = this.state;
-    const movie = tempListOfMovies.find((item: any) => {
-      if (item.id === +id) {
-        return item;
-      }
+  moviesBySameGenre = (movie: IMovie) => {
+    const filteredMovies = movies.filter((movieItem) => {
+      return movieItem.genre === movie.genre && movieItem.id !== movie.id;
     });
+    return filteredMovies;
+  };
+
+  onClickByMovie = (id: number) => {
+    const { tempListOfMovies } = this.state;
+    const movie = tempListOfMovies.find((item: IMovie) => item.id === id);
     this.setState({ movie });
+    const moviesByGenre = this.moviesBySameGenre(movie!);
+    this.setState({ tempListOfMovies: moviesByGenre });
+  };
+
+  onBackToSearchHandler = () => {
+    const { movies } = this.state;
+
+    this.setState({
+      movie: undefined,
+      tempListOfMovies: movies.sort((a: IMovie, b: IMovie) => b.date - a.date),
+    });
+  };
+
+  onKeyPressHandler = (e: any) => {
+    if (e.keyCode === 13 || e.charCode === 13) {
+      this.onSearchHandler();
+    }
   };
 
   render() {
@@ -92,21 +110,29 @@ class App extends Component<{}, IAppState> {
           onChange={this.onChangeHandler}
           onClickFilterBy={this.onChangeFilterByHandler}
           filterBy={this.state.filterBy}
+          onKeyPress={this.onKeyPressHandler}
         />
         <SortPannel
           moviesCount={this.state.tempListOfMovies.length}
           onClickSortBy={this.onClickSortByHandler}
           sortBy={this.state.sortBy}
         />
-        <Loading isLoading={this.state.isLoading} />
-        {this.state.movie && <Movie movie={this.state.movie!} />}
-        {this.state.tempListOfMovies.length ? (
+        <Loader isLoading={this.state.isLoading} />
+        {this.state.movie && (
+          <Movie
+            movie={this.state.movie!}
+            onClickSearch={this.onBackToSearchHandler}
+          />
+        )}
+
+        {!!this.state.tempListOfMovies.length && (
           <Movies
             movies={this.state.tempListOfMovies}
             onClickHandler={this.onClickByMovie}
           />
-        ) : (
-          <Error />
+        )}
+        {!this.state.isLoading && !this.state.tempListOfMovies.length && (
+          <NotFound />
         )}
 
         <Footer />

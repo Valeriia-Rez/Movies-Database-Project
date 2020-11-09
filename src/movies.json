@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Jackie Brown",
     "image": "filmImage.jpg",
-    "date": 1997,
+    "date": 2002,
     "genre": "Dramas",
     "vote_average": 2,
     "duration": 120,
@@ -14,7 +14,7 @@
     "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1995,
-    "genre": "Dramas",
+    "genre": "Horror",
     "vote_average": 4,
     "duration": 120,
     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered."
@@ -44,7 +44,7 @@
     "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas",
+    "genre": "Horror",
     "vote_average": 5,
     "duration": 120,
     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered."

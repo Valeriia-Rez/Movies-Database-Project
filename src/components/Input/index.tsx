@@ -4,9 +4,10 @@ import "./index.scss";
 interface IInputProps {
   value: string;
   onChange(term: string): void;
+  onKeyPress(e: any): void;
 }
 
-const Input = ({ value, onChange }: IInputProps) => {
+const Input = ({ value, onChange, onKeyPress }: IInputProps) => {
   return (
     <input
       type="text"
@@ -14,6 +15,7 @@ const Input = ({ value, onChange }: IInputProps) => {
       className="input"
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      onKeyPress={(e) => onKeyPress(e)}
     ></input>
   );
 };

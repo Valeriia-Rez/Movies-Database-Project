@@ -6,5 +6,7 @@ export interface IMovie {
     vote_average: number;
     duration?: number;
     description?: string;
-    id?:number
-  }
+    id:number
+}
+
+  
