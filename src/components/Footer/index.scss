@@ -1,5 +1,7 @@
+@import "../../assets/scss/main.scss";
+
 .footer {
-  background-color: #423333;
+  background-color: $primary;
   margin-top: auto;
   &__wrapper {
     padding: 20px;

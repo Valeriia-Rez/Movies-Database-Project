@@ -88,7 +88,6 @@ class App extends Component<{}, IAppState> {
 
   onBackToSearchHandler = () => {
     const { movies } = this.state;
-
     this.setState({
       movie: undefined,
       tempListOfMovies: movies.sort((a: IMovie, b: IMovie) => b.date - a.date),

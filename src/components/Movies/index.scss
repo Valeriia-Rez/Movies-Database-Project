@@ -1,8 +1,9 @@
+@import "../../assets/scss/main.scss";
+
 .movies {
-  display: flex;
+  @include flexSpaceBetween;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 20px;
+  padding: $paddingPrimary;
   @media screen and(min-width:1025px) {
     padding: 0 100px;
   }

@@ -7,16 +7,14 @@ interface IButtonProps {
   className?: string;
 }
 
-const Button = ({ buttonName, onClick, className }: IButtonProps) => {
-  return (
-    <button
-      onClick={onClick}
-      type="button"
-      className={`button ${className ? className : ""}`}
-    >
-      {buttonName}
-    </button>
-  );
-};
+const Button = ({ buttonName, onClick, className }: IButtonProps) => (
+  <button
+    onClick={onClick}
+    type="button"
+    className={`button ${className ? className : ""}`}
+  >
+    {buttonName}
+  </button>
+);
 
 export default Button;

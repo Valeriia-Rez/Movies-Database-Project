@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "title": "Jackie Brown",
+    "title": "Joker",
     "image": "filmImage.jpg",
     "date": 1995,
     "genre": "Horror",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "title": "Jackie Bn",
+    "title": "Barber Shop",
     "image": "filmImage.jpg",
     "date": 1997,
     "genre": "Dramas",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "title": "Jac Brown",
+    "title": "Jeck",
     "image": "filmImage.jpg",
     "date": 1992,
     "genre": "Thriller",
@@ -41,17 +41,17 @@
   },
   {
     "id": 5,
-    "title": "Jackie Brown",
+    "title": "Titanic",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Horror",
+    "genre": "Comedy",
     "vote_average": 5,
     "duration": 120,
     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered."
   },
   {
     "id": 6,
-    "title": "Jackie Brown",
+    "title": "Titanic",
     "image": "filmImage.jpg",
     "date": 1994,
     "genre": "Comedy",
@@ -61,19 +61,19 @@
   },
   {
     "id": 7,
-    "title": "Jacke Brown",
+    "title": "Holiday",
     "image": "filmImage.jpg",
-    "date": 1990,
-    "genre": "Dramas",
+    "date": 2008,
+    "genre": "Comedy",
     "vote_average": 7,
     "duration": 120,
     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered."
   },
   {
     "id": 8,
-    "title": "Jackie Brown",
+    "title": "Holiday",
     "image": "filmImage.jpg",
-    "date": 1997,
+    "date": 2015,
     "genre": "Horror",
     "vote_average": 2,
     "duration": 120,
@@ -81,10 +81,10 @@
   },
   {
     "id": 9,
-    "title": "Jackie Brown",
+    "title": "Scare",
     "image": "filmImage.jpg",
-    "date": 1997,
-    "genre": "Dramas",
+    "date": 2018,
+    "genre": "Horror",
     "vote_average": 2,
     "duration": 120,
     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered."
@@ -93,7 +93,7 @@
     "id": 10,
     "title": "Jackie Brown",
     "image": "filmImage.jpg",
-    "date": 1997,
+    "date": 2019,
     "genre": "Dramas",
     "vote_average": 2,
     "duration": 120,
@@ -101,7 +101,7 @@
   },
   {
     "id": 11,
-    "title": "Jackie Brown",
+    "title": "Scare",
     "image": "filmImage.jpg",
     "date": 1997,
     "genre": "Dramas",
@@ -111,7 +111,7 @@
   },
   {
     "id": 12,
-    "title": "Jackie Brown",
+    "title": "Love",
     "image": "filmImage.jpg",
     "date": 1997,
     "genre": "Dramas",
@@ -124,7 +124,7 @@
     "title": "Jackie Brown",
     "image": "filmImage.jpg",
     "date": 1997,
-    "genre": "Dramas",
+    "genre": "Comedy",
     "vote_average": 5,
     "duration": 120,
     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered."

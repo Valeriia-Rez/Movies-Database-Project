@@ -1,19 +1,22 @@
+@import "../../assets/scss/main.scss";
+
 .button {
   cursor: pointer;
   outline: none;
   border: none;
-  border-radius: 2px;
-  background-color: #807d7d;
-  color: #fff;
+  border-radius: $borderRadius;
+  background-color: $secondary;
+  color: $white;
   padding: 4px 7px;
+
   &.active {
-    background-color: #fa5555;
+    background-color: $red;
   }
+
   &.sortButton {
     border: none;
     background-color: transparent;
-    color: black;
-
+    color: $black;
     outline: none;
   }
 }

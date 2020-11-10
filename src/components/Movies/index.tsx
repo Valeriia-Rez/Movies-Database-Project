@@ -8,25 +8,16 @@ interface IMoviesProps {
   onClickHandler(id: number): void;
 }
 
-const Movies = ({ movies, onClickHandler }: IMoviesProps) => {
-  return (
-    <>
-      <div className="movies">
-        {movies.map((item) => {
-          return (
-            <Item
-              click={() => onClickHandler(item.id)}
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              date={item.date}
-              genre={item.genre}
-            />
-          );
-        })}
-      </div>
-    </>
-  );
-};
+const Movies = ({ movies, onClickHandler }: IMoviesProps) => (
+  <>
+    <div className="movies">
+      {movies.map((item) => {
+        return (
+          <Item click={() => onClickHandler(item.id)} key={item.id} {...item} />
+        );
+      })}
+    </div>
+  </>
+);
 
 export default Movies;

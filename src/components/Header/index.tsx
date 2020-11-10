@@ -10,7 +10,7 @@ interface IHeaderProps {
   onChange(term: string): void;
   onClickFilterBy(filterBy: string): void;
   filterBy: string;
-  onKeyPress(e: any): void;
+  onKeyPress(e: React.SyntheticEvent): void;
 }
 
 const Header = ({

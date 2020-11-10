@@ -1,7 +1,7 @@
-.error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@import "../../assets/scss/main.scss";
+
+.notFound {
+  @include flexCenter;
   height: 100%;
   &__message {
     font-size: 30px;
