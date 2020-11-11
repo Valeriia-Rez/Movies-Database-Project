@@ -19,4 +19,22 @@
     color: $black;
     outline: none;
   }
+  &.searchButton {
+    background-color: $red;
+    padding: 5px 30px;
+  }
+
+  &.movieButton {
+    background-color: $white;
+    color: $red;
+    font-weight: 600;
+  }
+
+  &.btn-title {
+    margin-right: 15px;
+  }
+
+  &.btn-genre {
+    margin-left: 15px;
+  }
 }

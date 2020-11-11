@@ -29,20 +29,24 @@ const Header = ({
         <Input value={searchTerm} onChange={onChange} onKeyPress={onKeyPress} />
         <div className="header__searchPannel">
           <div className="header__searchBy">
-            <span>SEARCH BY</span>
+            <span className="header__text">SEARCH BY</span>
             <Button
               onClick={() => onClickFilterBy("title")}
-              className={filterBy === "title" ? "active" : ""}
+              className={filterBy === "title" ? "active" : "btn-title"}
               buttonName="TITLE"
             />
             <Button
               onClick={() => onClickFilterBy("genre")}
-              className={filterBy === "genre" ? "active" : ""}
+              className={filterBy === "genre" ? "active" : "btn-genre"}
               buttonName="GENRE"
             />
           </div>
           <div>
-            <Button buttonName="SEARCH" onClick={onClickSearch} />
+            <Button
+              buttonName="SEARCH"
+              className="searchButton"
+              onClick={onClickSearch}
+            />
           </div>
         </div>
       </div>

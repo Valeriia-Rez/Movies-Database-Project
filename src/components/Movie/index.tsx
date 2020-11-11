@@ -13,7 +13,11 @@ const Movie = ({ movie, onClickSearch }: IMovieProps) => (
   <div className="movie">
     <div className="movie__header">
       <Logo />
-      <Button buttonName="search" onClick={onClickSearch} />
+      <Button
+        buttonName="SEARCH"
+        onClick={onClickSearch}
+        className="searchButton movieButton"
+      />
     </div>
     <div className="movie__description">
       <div className="movie__poster">
