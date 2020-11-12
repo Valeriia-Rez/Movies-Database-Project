@@ -63,12 +63,11 @@ class App extends Component<{}, IAppState> {
   };
 
   onClickSortByHandler = (sortByType: string) => {
-    this.setState({ sortBy: sortByType });
     const { tempListOfMovies } = this.state;
     const tempListSortMovies = tempListOfMovies.sort((a, b) => {
       return b[sortByType] - a[sortByType];
     });
-    this.setState({ tempListOfMovies: tempListSortMovies });
+    this.setState({ sortBy: sortByType, tempListOfMovies: tempListSortMovies });
   };
 
   moviesBySameGenre = (movie: IMovie) => {
@@ -81,9 +80,8 @@ class App extends Component<{}, IAppState> {
   onClickByMovie = (id: number) => {
     const { tempListOfMovies } = this.state;
     const movie = tempListOfMovies.find((item: IMovie) => item.id === id);
-    this.setState({ movie });
     const moviesByGenre = this.moviesBySameGenre(movie!);
-    this.setState({ tempListOfMovies: moviesByGenre });
+    this.setState({ movie, tempListOfMovies: moviesByGenre });
   };
 
   onBackToSearchHandler = () => {
@@ -104,7 +102,7 @@ class App extends Component<{}, IAppState> {
     return (
       <div className="app">
         <Header
-          onClickSearch={this.onSearchHandler}
+          onSearchClick={this.onSearchHandler}
           searchTerm={this.state.searchTerm}
           onChange={this.onChangeHandler}
           onClickFilterBy={this.onChangeFilterByHandler}
@@ -120,14 +118,14 @@ class App extends Component<{}, IAppState> {
         {this.state.movie && (
           <Movie
             movie={this.state.movie!}
-            onClickSearch={this.onBackToSearchHandler}
+            onSearchClick={this.onBackToSearchHandler}
           />
         )}
 
         {!!this.state.tempListOfMovies.length && (
           <Movies
             movies={this.state.tempListOfMovies}
-            onClickHandler={this.onClickByMovie}
+            onClick={this.onClickByMovie}
           />
         )}
         {!this.state.isLoading && !this.state.tempListOfMovies.length && (

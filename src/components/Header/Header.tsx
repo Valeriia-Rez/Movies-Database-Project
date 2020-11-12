@@ -2,10 +2,10 @@ import React from "react";
 import Button from "../Button";
 import Input from "../Input";
 import Logo from "../Logo";
-import "./index.scss";
+import "./Header.scss";
 
 interface IHeaderProps {
-  onClickSearch(): void;
+  onSearchClick(): void;
   searchTerm: string;
   onChange(term: string): void;
   onClickFilterBy(filterBy: string): void;
@@ -14,7 +14,7 @@ interface IHeaderProps {
 }
 
 const Header = ({
-  onClickSearch,
+  onSearchClick,
   searchTerm,
   onChange,
   onClickFilterBy,
@@ -45,7 +45,7 @@ const Header = ({
             <Button
               buttonName="SEARCH"
               className="searchButton"
-              onClick={onClickSearch}
+              onClick={onSearchClick}
             />
           </div>
         </div>

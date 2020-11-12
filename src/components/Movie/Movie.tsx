@@ -2,20 +2,20 @@ import React from "react";
 import Logo from "../Logo";
 import { IMovie } from "../../types";
 import Button from "../Button";
-import "./index.scss";
+import "./Movie.scss";
 
 interface IMovieProps {
   movie: IMovie;
-  onClickSearch(): void;
+  onSearchClick(): void;
 }
 
-const Movie = ({ movie, onClickSearch }: IMovieProps) => (
+const Movie = ({ movie, onSearchClick }: IMovieProps) => (
   <div className="movie">
     <div className="movie__header">
       <Logo />
       <Button
         buttonName="SEARCH"
-        onClick={onClickSearch}
+        onClick={onSearchClick}
         className="searchButton movieButton"
       />
     </div>
