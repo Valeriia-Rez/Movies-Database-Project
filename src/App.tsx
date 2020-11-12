@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 import movies from "./movies.json";
 import { IMovie } from "./types";
 import HomePage from "./pages/HomePage";
 import "./App.scss";
 import Layout from "./components/Layout";
+import MovieDetails from "./pages/MovieDetails";
 
 interface IAppState {
   movies: IMovie[] | [];
@@ -22,16 +24,15 @@ class App extends Component<{}, IAppState> {
     sortBy: "date",
   };
 
-  onSearchHandler = (searchTerm: string, filterBy: string) => {
-    console.log(searchTerm, filterBy);
-    // this.setState({ movie: undefined, isLoading: true, searchTerm: "" });
-    // const { searchTerm, filterBy, movies } = this.state;
-    // const tempListOfMovies = movies.filter(
-    //   (movie) => movie[filterBy] === searchTerm
-    // );
-    // setTimeout(() => {
-    //   this.setState({ tempListOfMovies, isLoading: false });
-    // }, 1000);
+  onSearchHandler = (searchTerm: string, filterBy: any) => {
+    this.setState({ movie: undefined, isLoading: true });
+
+    const tempListOfMovies = movies.filter(
+      (movieItem) => movieItem.title === searchTerm
+    );
+    setTimeout(() => {
+      this.setState({ tempListOfMovies, isLoading: false });
+    }, 1000);
   };
 
   componentDidMount = () => {
@@ -54,19 +55,19 @@ class App extends Component<{}, IAppState> {
     this.setState({ sortBy: sortByType, tempListOfMovies: tempListSortMovies });
   };
 
-  moviesBySameGenre = (movie: IMovie) => {
-    const filteredMovies = movies.filter((movieItem) => {
-      return movieItem.genre === movie.genre && movieItem.id !== movie.id;
-    });
-    return filteredMovies;
-  };
+  // moviesBySameGenre = (movie: IMovie) => {
+  //   const filteredMovies = movies.filter((movieItem) => {
+  //     return movieItem.genre === movie.genre && movieItem.id !== movie.id;
+  //   });
+  //   return filteredMovies;
+  // };
 
-  onClickByMovie = (id: number) => {
-    const { tempListOfMovies } = this.state;
-    const movie = tempListOfMovies.find((item: IMovie) => item.id === id);
-    const moviesByGenre = this.moviesBySameGenre(movie!);
-    this.setState({ movie, tempListOfMovies: moviesByGenre });
-  };
+  // onClickByMovie = (id: number) => {
+  //   const { tempListOfMovies } = this.state;
+  //   const movie = tempListOfMovies.find((item: IMovie) => item.id === id);
+  //   const moviesByGenre = this.moviesBySameGenre(movie!);
+  //   this.setState({ movie, tempListOfMovies: moviesByGenre });
+  // };
 
   onBackToSearchHandler = () => {
     const { movies } = this.state;
@@ -79,17 +80,34 @@ class App extends Component<{}, IAppState> {
   render() {
     return (
       <Layout>
-        <HomePage
-          onSearchClick={this.onSearchHandler}
-          isLoading={this.state.isLoading}
-          movies={this.state.tempListOfMovies}
-          onClick={this.onClickByMovie}
-          movie={this.state.movie!}
-          onBackSearchClick={this.onBackToSearchHandler}
-          moviesCount={this.state.tempListOfMovies.length}
-          onClickSortBy={this.onClickSortByHandler}
-          sortBy={this.state.sortBy}
-        />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <HomePage
+                onSearchClick={this.onSearchHandler}
+                isLoading={this.state.isLoading}
+                movies={this.state.tempListOfMovies}
+                moviesCount={this.state.tempListOfMovies.length}
+                onClickSortBy={this.onClickSortByHandler}
+                sortBy={this.state.sortBy}
+                {...props}
+              />
+            )}
+          />
+
+          <Route
+            path="/film/:id"
+            render={(props) => (
+              <MovieDetails
+                movies={this.state.movies!}
+                onBackSearchClick={this.onBackToSearchHandler}
+                {...props}
+              />
+            )}
+          />
+        </Switch>
       </Layout>
     );
   }

@@ -6,10 +6,9 @@ interface IMovieItemProps {
   title: string;
   date: number;
   genre: string;
-  onClick(): void;
 }
-const MovieItem = ({ image, title, date, genre, onClick }: IMovieItemProps) => (
-  <div className="item" onClick={onClick}>
+const MovieItem = ({ image, title, date, genre }: IMovieItemProps) => (
+  <div className="item">
     <div className="item__poster">
       <img src={`/images/${image}`} alt="movie" className="item__img" />
     </div>
