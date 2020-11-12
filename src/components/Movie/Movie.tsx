@@ -6,16 +6,16 @@ import "./Movie.scss";
 
 interface IMovieProps {
   movie: IMovie;
-  onSearchClick(): void;
+  onBackSearchClick(): void;
 }
 
-const Movie = ({ movie, onSearchClick }: IMovieProps) => (
+const Movie = ({ movie, onBackSearchClick }: IMovieProps) => (
   <div className="movie">
     <div className="movie__header">
       <Logo />
       <Button
         buttonName="SEARCH"
-        onClick={onSearchClick}
+        onClick={onBackSearchClick}
         className="searchButton movieButton"
       />
     </div>
