@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import "./App.scss";
 import Layout from "./components/Layout";
 import MovieDetails from "./pages/MovieDetails";
+import NotFoundPage from "./pages/NotFoundPage";
 
 interface IAppState {
   movies: IMovie[] | [];
@@ -28,7 +29,9 @@ class App extends Component<{}, IAppState> {
     this.setState({ movie: undefined, isLoading: true });
 
     const tempListOfMovies = movies.filter(
-      (movieItem) => movieItem.title === searchTerm
+      (movieItem) =>
+        (filterBy === "title" && movieItem.title === searchTerm) ||
+        (filterBy === "genre" && movieItem.genre === searchTerm)
     );
     setTimeout(() => {
       this.setState({ tempListOfMovies, isLoading: false });
@@ -54,20 +57,6 @@ class App extends Component<{}, IAppState> {
     });
     this.setState({ sortBy: sortByType, tempListOfMovies: tempListSortMovies });
   };
-
-  // moviesBySameGenre = (movie: IMovie) => {
-  //   const filteredMovies = movies.filter((movieItem) => {
-  //     return movieItem.genre === movie.genre && movieItem.id !== movie.id;
-  //   });
-  //   return filteredMovies;
-  // };
-
-  // onClickByMovie = (id: number) => {
-  //   const { tempListOfMovies } = this.state;
-  //   const movie = tempListOfMovies.find((item: IMovie) => item.id === id);
-  //   const moviesByGenre = this.moviesBySameGenre(movie!);
-  //   this.setState({ movie, tempListOfMovies: moviesByGenre });
-  // };
 
   onBackToSearchHandler = () => {
     const { movies } = this.state;
@@ -107,6 +96,7 @@ class App extends Component<{}, IAppState> {
               />
             )}
           />
+          <Route render={() => <NotFoundPage />} />
         </Switch>
       </Layout>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import Button from "../../components/Button";
 import { IMovie } from "../../types";
@@ -6,6 +7,7 @@ import Movie from "../../components/Movie";
 import { RouteComponentProps } from "react-router";
 import movies from "../../movies.json";
 import Movies from "../../components/Movies";
+import NotFoundPage from "../../pages/NotFoundPage";
 
 interface IRouteInfo {
   id: string;
@@ -45,7 +47,6 @@ class MovieDetails extends Component<IMovieDetailsProps, IMovieDetailsState> {
       const movie = moviesData.find((movie) => {
         return movie.id === +this.props.match.params.id;
       });
-      console.log(movie);
       this.setState({ movie });
     }
   };
@@ -56,15 +57,19 @@ class MovieDetails extends Component<IMovieDetailsProps, IMovieDetailsState> {
         {this.state.movie ? (
           <>
             <Logo />
-            <Button
-              buttonName="SEARCH"
-              onClick={() => null}
-              className="searchButton movieButton"
-            />
+            <Link to="/">
+              <Button
+                buttonName="SEARCH"
+                onClick={() => null}
+                className="searchButton movieButton"
+              />
+            </Link>
             <Movie movie={this.state.movie} />
           </>
         ) : (
-          <p>Loading</p>
+          <div>
+            <p>The film by this id is not exist</p>
+          </div>
         )}
         <Movies movies={this.state.moviesBySameGenre} />
       </>

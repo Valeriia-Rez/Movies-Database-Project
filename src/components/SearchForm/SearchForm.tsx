@@ -23,7 +23,13 @@ class SearchForm extends Component<ISearchFormProps, ISearchFormState> {
   onKeyPressHandler = (e: any) => {
     if (e.keyCode === 13 || e.charCode === 13) {
       this.props.onSearchClick(this.state.searchTerm, this.state.filterBy);
+      this.state.searchTerm = "";
     }
+  };
+
+  onSearchClickHandler = () => {
+    this.props.onSearchClick(this.state.searchTerm, this.state.filterBy);
+    this.setState({ searchTerm: "" });
   };
 
   render() {
@@ -39,14 +45,18 @@ class SearchForm extends Component<ISearchFormProps, ISearchFormState> {
           <div className="header__searchBy">
             <span className="header__text">SEARCH BY</span>
             <Button
-              onClick={() => this.setState({ filterBy: "title" })}
+              onClick={() =>
+                this.setState({ filterBy: "title", searchTerm: "" })
+              }
               className={
                 this.state.filterBy === "title" ? "active" : "btn-title"
               }
               buttonName="TITLE"
             />
             <Button
-              onClick={() => this.setState({ filterBy: "genre" })}
+              onClick={() =>
+                this.setState({ filterBy: "genre", searchTerm: "" })
+              }
               className={
                 this.state.filterBy === "genre" ? "active" : "btn-genre"
               }
@@ -57,12 +67,7 @@ class SearchForm extends Component<ISearchFormProps, ISearchFormState> {
             <Button
               buttonName="SEARCH"
               className="searchButton"
-              onClick={() =>
-                this.props.onSearchClick(
-                  this.state.searchTerm,
-                  this.state.filterBy
-                )
-              }
+              onClick={this.onSearchClickHandler}
             />
           </div>
         </div>
