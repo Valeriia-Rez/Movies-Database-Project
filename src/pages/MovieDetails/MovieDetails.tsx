@@ -1,22 +1,17 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../components/Logo";
-import Button from "../../components/Button";
 import { IMovie } from "../../types";
 import Movie from "../../components/Movie";
 import { RouteComponentProps } from "react-router";
 import movies from "../../movies.json";
 import Movies from "../../components/Movies";
-import NotFoundPage from "../../pages/NotFoundPage";
+import "./MovieDetails.scss";
+import Header from "../../components/Header";
 
 interface IRouteInfo {
   id: string;
 }
 
-interface IMovieDetailsProps extends RouteComponentProps<IRouteInfo> {
-  onBackSearchClick(): void;
-  movies: IMovie[];
-}
+interface IMovieDetailsProps extends RouteComponentProps<IRouteInfo> {}
 
 interface IMovieDetailsState {
   movie?: IMovie;
@@ -31,7 +26,7 @@ class MovieDetails extends Component<IMovieDetailsProps, IMovieDetailsState> {
 
   componentDidMount = () => {
     const filmId = this.props.match.params.id;
-    let moviesData = this.props.movies.length ? this.props.movies : movies;
+    let moviesData = movies;
     const movie = moviesData.find((movie) => {
       return movie.id === +filmId;
     });
@@ -43,7 +38,7 @@ class MovieDetails extends Component<IMovieDetailsProps, IMovieDetailsState> {
 
   componentDidUpdate = (prevProps: any) => {
     if (this.props.match.params.id !== prevProps.match.params.id) {
-      let moviesData = this.props.movies.length ? this.props.movies : movies;
+      let moviesData = movies;
       const movie = moviesData.find((movie) => {
         return movie.id === +this.props.match.params.id;
       });
@@ -54,23 +49,16 @@ class MovieDetails extends Component<IMovieDetailsProps, IMovieDetailsState> {
   render() {
     return (
       <>
-        {this.state.movie ? (
-          <>
-            <Logo />
-            <Link to="/">
-              <Button
-                buttonName="SEARCH"
-                onClick={() => null}
-                className="searchButton movieButton"
-              />
-            </Link>
+        <Header isLinkToShow={true} />
+        <div className="movieDetails">
+          {this.state.movie ? (
             <Movie movie={this.state.movie} />
-          </>
-        ) : (
-          <div>
-            <p>The film by this id is not exist</p>
-          </div>
-        )}
+          ) : (
+            <div>
+              <p>The film by this id is not exist</p>
+            </div>
+          )}
+        </div>
         <Movies movies={this.state.moviesBySameGenre} />
       </>
     );

@@ -7,6 +7,7 @@ interface IMovieItemProps {
   date: number;
   genre: string;
 }
+
 const MovieItem = ({ image, title, date, genre }: IMovieItemProps) => (
   <div className="item">
     <div className="item__poster">

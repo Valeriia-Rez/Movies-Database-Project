@@ -1,10 +1,14 @@
 import React from "react";
 import "./NotFound.scss";
 
-const NotFound = () => (
+interface INotFoundProps {
+  message: string;
+}
+
+const NotFound = ({ message }: INotFoundProps) => (
   <div className="notFound">
     <div className="notFound__message">
-      <p>No films found</p>
+      <p>{message}</p>
     </div>
   </div>
 );

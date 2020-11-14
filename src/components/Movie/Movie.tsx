@@ -1,7 +1,5 @@
 import React from "react";
-
 import { IMovie } from "../../types";
-
 import "./Movie.scss";
 
 interface IMovieProps {

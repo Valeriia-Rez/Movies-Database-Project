@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Input from "../Input";
 import Button from "../Button";
+import "./SearchForm.scss";
 
 interface ISearchFormProps {
   onSearchClick(searchTerm: string, filterBy: string): void;
+  sortBy: string;
 }
 
 interface ISearchFormState {
@@ -34,16 +36,16 @@ class SearchForm extends Component<ISearchFormProps, ISearchFormState> {
 
   render() {
     return (
-      <>
+      <div className="searchForm">
         <h1>FIND YOUR MOVIE</h1>
         <Input
           value={this.state.searchTerm}
           onChange={this.onChangeHadler}
           onKeyPress={this.onKeyPressHandler}
         />
-        <div className="header__searchPannel">
-          <div className="header__searchBy">
-            <span className="header__text">SEARCH BY</span>
+        <div className="searchForm__pannel">
+          <div className="searchForm__searchBy">
+            <span className="searchForm__text">SEARCH BY</span>
             <Button
               onClick={() =>
                 this.setState({ filterBy: "title", searchTerm: "" })
@@ -71,7 +73,7 @@ class SearchForm extends Component<ISearchFormProps, ISearchFormState> {
             />
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
